@@ -19,7 +19,7 @@ const Note = mongoose.model("Note", {
 
 app.get("/", (req, res) => {
   Note.find({}, (err, note) => {
-    res.render("index", { memo : note });
+    res.render("index", { note : note });
   });
 });
 
@@ -54,7 +54,7 @@ app.get("/delete/:id", (req, res) => {
 app.get("/edit/:id", (req, res) => {
   Note.find({ _id: req.params.id }, (err, note) => {
     if (!err) {
-      res.render("update", { note: note });
+      res.render("update", { memo: note });
     } else {
       console.table(err);
     }
