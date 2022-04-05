@@ -2,18 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT  3000
 const env = require('dotenv')
 
 env.config()
 
-const MONGODB_URI = `mongodb+srv://Abduazim:abduazim04100608!@cluster0.cij0k.mongodb.net/noteDb`
+const MONGODB_URI = `mongodb+srv://Abdulboriy:zerotomastery@cluster0.mpywc.mongodb.net/noteDb`
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/noteDb");
+mongoose.connect(MONGODB_URI  "mongodb://localhost:27017/noteDb");
 
 const Note = mongoose.model("Note", {
   date: String,
