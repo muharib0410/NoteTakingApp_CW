@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+<div class="container mt-5">
+  <div class="row">
+    <% if(note.length === 0){ %>
+
+    <div class="alert alert-dismissible alert-warning">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <h4 class="alert-heading">Warning!</h4>
+      <p class="mb-0">
+        Currenly, No Notes have been added
+
+        <br />
+        <br />
+        <a href="/create" class="alert-link">Create New Note </a>.
+      </p>
+    </div>
+
+    <% } else { %> <% for(let i = 0; i < note.length ; i++) {%>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-header"><%= note[i]['date'] %></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= note[i]['authour'] %></h5>
+          <p class="card-text"><%= note[i]['body'] %></p>
+          <a href="/edit/<%= note[i]['_id'] %>" class="btn btn-primary"
+            >Update</a
+          >
+          <a href="/delete/<%= note[i]['_id'] %>" class="btn btn-danger"
+            >Delete</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <% } %> <% } %>
+  </div>
+</div>
+<%- include('footer') %>
